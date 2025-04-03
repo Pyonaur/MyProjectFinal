@@ -1,0 +1,64 @@
+How to run the app.
+
+1. Run venv\Scripts\activate in the path of venv folder.
+2. In VSCode press  Ctrl + Shift + D then run the python file. Or in the terminal go to backend folder and run uvicorn main:app --reload
+3. Make sure to access http://127.0.0.1:8000/docs
+4. In frontend folder open index.html in a browser.
+5. Upload file to test.
+
+------------------------------------------------------------
+#Crashed Environment
+rm -r venv  # Delete the broken venv
+python -m venv venv  # Recreate a new venv
+venv\Scripts\activate  # Activate the new venv
+pip install --upgrade pip  # Upgrade pip
+pip install fastapi uvicorn tensorflow pillow numpy
+
+Run Backend
+------------------------
+run path/to/backend
+uvicorn main:app --reload
+http://127.0.0.1:8000/
+http://127.0.0.1:8000/docs
+
+1. Stop the Running Uvicorn Server
+If running in a normal terminal, press Ctrl + C to stop it.
+
+If running in the background (as a detached process), find its Process ID (PID) and kill it:
+
+sh
+Copy
+Edit
+ps aux | grep uvicorn  # Find the PID
+kill -9 <PID>
+------------------------
+2. Restart with the New Command
+Run the new command:
+
+sh
+Copy
+Edit
+python -m uvicorn main:app --reload --host 0.0.0.0 --port 8000
+python -m uvicorn main:app --reload --host 127.0.0.1 --port 8000
+
+Other debugging
+python -m debugpy --listen 5678 --wait-for-client -m uvicorn main:app --host 127.0.0.1 --port 8000 --reload
+
+
+front end
+------------------------
+cd path/to/frontend
+python -m http.server 8080
+http://127.0.0.1:8080/
+
+pip command
+pip check #To verify if there are any broken or missing dependencies, run:
+pip list #Check packages
+pip show tensorflow #To see what dependencies a package requires,
+pip install -r requirements.txt
+---------------------
+Create H5
+Paste script to generate_model.py
+in terminal go to cd C:\FionaAI\MyProject
+venv\Scripts\activate
+python generate_model.py

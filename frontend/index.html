@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Urine Image Upload</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Upload Urine Image</h1>
+        <p class="instructions">Select an image to predict its class and probability</p>
+
+        <!-- File input for image -->
+        <input type="file" id="fileInput" accept="image/*" class="file-input" onchange="previewImage()">
+
+        <!-- Image preview area -->
+        <img id="preview" class="image-preview hidden" alt="Image Preview">
+        <br>
+        <!-- Upload button -->
+        <button onclick="uploadImage()" class="upload-btn">Upload & Predict</button>
+
+        <!-- Error message -->
+        <p id="error" class="error-message hidden"></p>
+
+        <!-- Result section -->
+        <div id="result" class="result hidden">
+            <h2>Prediction Result</h2>
+            <p><strong>Class:</strong> <span id="className"></span></p>
+            <p><strong>Probability:</strong> <span id="probability"></span>%</p>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
